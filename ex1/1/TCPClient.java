@@ -5,6 +5,13 @@ class TCPClient {
     public static void main(String[] args) throws Exception {
         String sentence;
         String modifiedSentence;
+        
+        System.out.println("Client\n");
+        System.out.println("enter number 1 (to end just press enter): ");
+        int num1 = 0;
+        if(num1 != null){
+            System.out.println("enter number 2 (to end just press enter): ");
+        }
 
         // Create input stream
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
