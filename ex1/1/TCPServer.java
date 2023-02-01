@@ -20,7 +20,7 @@ class TCPServer {
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
             // Read the line from socked
             clientSentence = inFromClient.readLine();
-            capitalizedSentence = clientSentence.toUpperCase() + "\n";
+            capitalizedSentence = "The result is " + clientSentence.toUpperCase() + "\n";
             // Write out line to socket
             outToClient.writeBytes(capitalizedSentence);
         }
