@@ -5,9 +5,6 @@ class TCPServer {
     public static void main(String[] args) throws Exception {
         String clientSentence;
         String capitalizedSentence;
-        int prevNum = 0;
-        int num = 0;
-        int count = 0;
 
         System.out.println("Server\nWaiting for client connection at port number 1667");
 
@@ -21,22 +18,13 @@ class TCPServer {
             BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
             // Create output stream, attached to socket
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-
             // Read the line from socked
             clientSentence = inFromClient.readLine();
-            num = Integer.parseInt(clientSentence);
-            count++;
-            if (count == 1) {
-                prevNum = num;
-                outToClient.writeBytes("");
-            }
-            if (count == 2) {
-                capitalizedSentence = "The result is " + (prevNum + num) + "\n";
-                // Write out line to socket
-                outToClient.writeBytes(capitalizedSentence);
-                prevNum = 0;
-                count = 0;
-            }
+            String[] arrOfStr = clientSentence.split(",", 2);
+            capitalizedSentence = "The result is " + (Integer.parseInt(arrOfStr[0]) + Integer.parseInt(arrOfStr[1]))
+                    + "\n";
+            // Write out line to socket
+            outToClient.writeBytes(capitalizedSentence);
         }
     }
 }
