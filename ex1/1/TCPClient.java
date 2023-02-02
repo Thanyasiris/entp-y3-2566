@@ -20,12 +20,15 @@ class TCPClient {
         System.out.println("Client");
         System.out.print("enter number 1 (to end just press enter): ");
         String input1 = inFromUser.readLine();
-        // if (input1 != "") {
         try {
+            // check input1 is integer
             Integer.parseInt(input1);
+
             System.out.print("enter number 2 (to end just press enter): ");
             String input2 = inFromUser.readLine();
+
             try {
+                // check input1 is integer
                 Integer.parseInt(input2);
 
                 // Sent line to server
