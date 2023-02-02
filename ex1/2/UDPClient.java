@@ -3,8 +3,6 @@ import java.net.*;
 
 class UDPClient {
     public static void main(String[] args) throws Exception {
-        // Create input stream
-        BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 
         // Create client socket
         DatagramSocket clientSocket = new DatagramSocket();
@@ -15,7 +13,7 @@ class UDPClient {
         byte[] sendData = new byte[1024];
         byte[] recieveData = new byte[1024];
 
-        String sentence = inFromUser.readLine();
+        String sentence = "";
         sendData = sentence.getBytes();
 
         // Create datagram with data-to-send, length, IP addr, port
