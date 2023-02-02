@@ -28,7 +28,7 @@ class TCPClient {
             String input2 = inFromUser.readLine();
 
             try {
-                // check input1 is integer
+                // check input2 is integer
                 Integer.parseInt(input2);
 
                 // Sent line to server
