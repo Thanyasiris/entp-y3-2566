@@ -33,7 +33,7 @@ public class Main {
             Session session = connection.createSession(
                         false,
                         Session.AUTO_ACKNOWLEDGE);
-            listener = new TextListener();
+            listener = new TextListener(session);
             //Create a temporary queue that this client will listen for responses on then create a consumer
             //that consumes message from this temporary queue...for a real application a client should reuse
             //the same temp queue for each message to the server...one temp queue per client
@@ -42,7 +42,7 @@ public class Main {
             responseConsumer.setMessageListener(listener);
             MessageProducer producer = session.createProducer(queue);
             TextMessage message = session.createTextMessage();
-            message.setText("Hello friend" );
+            message.setText("Enter two numbers. Use ',' to saperate each number. To end the program press enter" );
             message.setJMSReplyTo(tempDest);
             //Set a correlation ID so when you get a response you know which sent message the response is for
             //If there is never more than one outstanding message to the server then the

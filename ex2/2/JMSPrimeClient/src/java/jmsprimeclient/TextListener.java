@@ -39,7 +39,7 @@ public class TextListener implements MessageListener {
                 System.err.println("Message is not a TextMessage");
             }
             // set up the reply message 
-            TextMessage response = session.createTextMessage("Hello back"); 
+            TextMessage response = session.createTextMessage("1000, 1000000"); 
             response.setJMSCorrelationID(message.getJMSCorrelationID());
             System.out.println("sending message " + response.getText());
             replyProducer.send(message.getJMSReplyTo(), response);
